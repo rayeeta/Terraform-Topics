@@ -79,16 +79,20 @@ mkdir bmt_tf_demo && cd bmt_tf_demo
 nano main.tf
 ```
 Paste this as a test:
-```hcl
+```
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-1" # Change to your preferred region
 }
 
-data "aws_caller_identity" "current" {}
+resource "aws_instance" "example" {
+  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI for us-east-1
+  instance_type = "t2.micro"
 
-output "account_id" {
-  value = data.aws_caller_identity.current.account_id
+  tags = {
+    Name = "BMT_EC2"
+  }
 }
+
 ```
 
 **c. Initialize and apply:**
