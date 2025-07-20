@@ -1,3 +1,113 @@
+**Step-by-step guide** to install Terraform in a WSL (Windows Subsystem for Linux) terminal and integrate your local environment with AWS:
+
+---
+
+## ** 1. Install Terraform in WSL**
+
+**a. Update your package list:**
+```
+sudo apt-get update
+```
+
+**b. Install dependencies:**
+```
+sudo apt-get install -y wget unzip
+```
+
+**c. Download the latest Terraform release:**
+```
+wget https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip
+```
+*(Check [Terraform releases](https://releases.hashicorp.com/terraform/) for the latest version if needed.)*
+
+**d. Unzip and move the binary:**
+```
+unzip terraform_1.8.5_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+```
+
+**e. Verify installation:**
+```
+terraform -version
+```
+
+---
+
+## **2. Install AWS CLI in WSL**
+
+**a. Download and install AWS CLI:**
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+**b. Verify installation:**
+```
+aws --version
+```
+
+---
+
+## **3. Configure AWS Credentials**
+
+**a. Run the AWS configure command:**
+```
+## Make sure you have your Access Key already created in AWS before you continue this step
+
+aws configure
+```
+- Enter your AWS Access Key ID
+- Enter your AWS Secret Access Key
+- Enter your default region (e.g., `us-east-1`)
+- Enter your default output format (e.g., `json`)
+
+**b. Credentials are stored in:**  
+`~/.aws/credentials` and `~/.aws/config`
+
+---
+
+## **4. Test Terraform AWS Integration**
+
+**a. Create a new directory for your Terraform project:**
+```
+mkdir bmt_tf_demo && cd bmt_tf_demo
+```
+
+**b. Create a simple Terraform file (e.g., `main.tf`):**
+```
+nano main.tf
+```
+Paste this as a test:
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+
+**c. Initialize and apply:**
+```
+terraform init
+terraform fmt
+terraform plan
+terraform apply -auto-approve
+terraform destroy -auto-approve
+```
+- Type `yes` when prompted.
+
+**d. You should see your AWS account ID as output, confirming integration is successful.**
+
+---
+
+
+##########################################################################################################################
+
 # Terraform & AWS CLI Installation
 
 ## A) Prerequisites
