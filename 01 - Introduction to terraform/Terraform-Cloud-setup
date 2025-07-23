@@ -1,21 +1,19 @@
-# Creating EC2 Instances in AWS through Terraform Cloud and GitHub: Step-by-Step Walkthrough
+# **Creating EC2 Instances in AWS through Terraform Cloud and GitHub: Step-by-Step Walkthrough
 
 ## Step 1: Setting Up a GitHub Repository
 
-```
-1. Open your browser and navigate to GitHub.com, then log in
-2. Click the "+" icon in the top right and select "New repository"
-3. Name the repository "terraform-aws-ec2-demo"
-4. Add a brief description: "Demo project for creating AWS EC2 instances with Terraform Cloud"
-5. Make it public so that students-mates can see and collaborate
-6. Check the box to add a README file(optional)
-7. Click "Create repository"
-8. On your local machine, open Ubuntu WSL Terminal (or Command Prompt) and run:
+ - Open your browser and navigate to GitHub.com, then login
+ - Click the "+" icon in the top right and select "New repository"
+ - Name the repository "terraform-aws-ec2-demo"
+ - Add a brief description: "Demo project for creating AWS EC2 instances with Terraform Cloud"
+ - Make it public so that students-mates can see and collaborate
+ - Check the box to add a README file(optional)
+ - Click "Create repository"
+ - On your local machine, open Ubuntu WSL Terminal (or Command Prompt) and run:
   
    git clone https://github.com/my-username/terraform-aws-ec2-demo.git
    cd terraform-aws-ec2-demo
-```
-```   
+   
 ## Step 2: Creating a Terraform Configuration File/s from your VSCode
 1. In the repository directory, create a new file called main.tf:
   
