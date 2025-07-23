@@ -1,6 +1,6 @@
-# **Creating EC2 Instances in AWS through Terraform Cloud and GitHub: Step-by-Step Walkthrough
+# **Creating EC2 Instances in AWS through Terraform Cloud and GitHub: Step-by-Step Walkthrough**
 
-## Step 1: Setting Up a GitHub Repository
+## **Step 1: Setting Up a GitHub Repository**
 
  - Open your browser and navigate to GitHub.com, then login
  - Click the "+" icon in the top right and select "New repository"
@@ -14,13 +14,10 @@
    git clone https://github.com/my-username/terraform-aws-ec2-demo.git
    cd terraform-aws-ec2-demo
    
-## Step 2: Creating a Terraform Configuration File/s from your VSCode
+## **Step 2: Creating a Terraform Configuration File/s from your VSCode**
 1. In the repository directory, create a new file called main.tf:
   
    touch main.tf
-```
-
-```
    
 2. Open main.tf in my code editor and add:
   
@@ -50,12 +47,9 @@ resource "aws_s3_bucket" "rayeeta_belgium" {
     Environment = "Dev"
   }
 }
-
-```
-
-```   
+  
    
-## Step 3: Pushing My Codes to GitHub
+## **Step 3: Pushing My Codes to GitHub**
 1. Add all the files to git:
   
    git add .
@@ -67,29 +61,25 @@ resource "aws_s3_bucket" "rayeeta_belgium" {
 3. Push to GitHub:
   
    git push origin main
-
-```
    
-## Step 4: Setting Up Terraform Cloud
+## **Step 4: Setting Up Terraform Cloud**
 
-1. Open a browser and navigate to app.terraform.io
-2. Login (or create an account if you don't have one)
-3. Click "Create new organization" if needed and name it "bmt-terraform-org"
-4. Once in the organization, click "New workspace"
-5. Select "Version control workflow"
-6. Choose GitHub as your provider
-7. If needed, authorize Terraform Cloud to access your GitHub repositories
-8. Select the "terraform-aws-ec2-demo" repository
-9. Name the workspace "aws-ec2-demo"
-10. Click "Create workspace"
+- Open a browser and navigate to app.terraform.io
+- Login (or create an account if you don't have one)
+- Click "Create new organization" if needed and name it "bmt-terraform-org"
+- Once in the organization, click "New workspace"
+- Select "Version control workflow"
+- Choose GitHub as your provider
+- If needed, authorize Terraform Cloud to access your GitHub repositories
+- Select the "terraform-aws-ec2-demo" repository
+- Name the workspace "aws-ec2-demo"
+- Click "Create workspace"
 
-## Step 5: Configuring AWS Credentials in Terraform Cloud
-## In AWS go to IAM to create a Users, Create user, Unser details give-a-name
-## Next, Attach policies directly and select AdministratorAccess, scroll down
-## and click Next, and Create user. Infront of you will be your:
-## Access key and Secret access key. Keep them safe to be used below 
-
-```
+## **Step 5: Configuring AWS Credentials in Terraform Cloud**
+## **In AWS go to IAM to create a Users, Create user, Unser details give-a-name**
+## **Next, Attach policies directly and select AdministratorAccess, scroll down**
+## **and click Next, and Create user. Infront of you will be your:**
+## **Access key and Secret access key. Keep them safe to be used below**
 
 1. In Terraform Cloud workspace, click on "Variables"
 2. Click "Add variable" and select "Environment variable"
@@ -112,13 +102,11 @@ resource "aws_s3_bucket" "rayeeta_belgium" {
 9. Go to your Terraform cloud account to check the pipeline. Click Runs and followed
    by the Current Run    
 
-```
 
 ## How to create a Terraform Cloud API Token to use in a terminal like Ubuntu WSL
 
 **To create a Terraform Cloud API token and use it in Ubuntu or WSL (Windows Subsystem for Linux), follow these steps:**
 
-```
 Step 1: Generate Your Terraform Cloud API Token
 Go to Terraform Cloud.
 
@@ -141,12 +129,9 @@ Paste the api-token from Terraform Cloud and press ENTER
 
 Alternatively:
 
-```
 
-```
-
-##Step 2: Set the API Token in Ubuntu/WSL Terminal
-**You can set the API token using an environment variable. Run the following in your terminal:**
+## **Step 2: Set the API Token in Ubuntu/WSL Terminal**
+** **You can set the API token using an environment variable. Run the following in your terminal:**
 
 
 export TFC_TOKEN=your-api-token-here
@@ -156,8 +141,9 @@ Or more precisely for Terraform CLI:
 export TERRAFORM_CLOUD_TOKEN=your-api-token-here
 Alternatively, configure it for your Terraform CLI:
 
-This will open a browser to authorize Terraform CLI to access Terraform Cloud, or allow you to paste in the token manually if browser-based login is not possible.
+This will open a browser to authorize Terraform CLI to access Terraform Cloud, or allow you to paste in the 
+token manually if browser-based login is not possible.
 
-```
+
 
 
