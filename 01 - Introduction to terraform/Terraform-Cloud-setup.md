@@ -1,4 +1,4 @@
-# **Creating EC2 Instances in AWS through Terraform Cloud and GitHub: Step-by-Step Walkthrough**
+# **Enterprise based IaC CI/CD Pipeline using Terraform Cloud**
 
 ## **Step 1: Setting Up a GitHub Repository**
 
